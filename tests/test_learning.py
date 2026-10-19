@@ -138,6 +138,15 @@ class IntegrationTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(len(record["messages"]), 2)
         self.assertIsNone(CAPTURE.get())
 
+    async def test_i2v_fidelity_is_applied_and_explicit_changes_take_priority(self):
+        response = await self.client.post("/h3studio/generate", json={"mode": "I2VA", "creative_brief": "Change the jacket to blue.", "api_provider": {"model_id": "qwen"}})
+        record = self.learning.store.get((await response.json())["learning_generation_id"])
+        contract = next(m["content"] for m in record["messages"] if m.get("name") == "i2v_reference_fidelity")
+        self.assertIn("clothing", contract)
+        self.assertIn("facial structure", contract)
+        self.assertIn("Requested changes and actions take priority", contract)
+        self.assertEqual(record["model"], "qwen")
+
     async def test_upload_background_learning_and_cleanup(self):
         result = await self.generation()
         ident = result["learning_generation_id"]

@@ -27,3 +27,6 @@ Changes in this independent version:
 
 Validation: 16 local tests pass. Live behavior depends on the connected model and
 server configuration; automatic improvement in video quality is not guaranteed.
+
+- Strengthen I2VA face, clothing and accessory fidelity, while respecting explicitly requested changes.
+- Add structured reference-fidelity findings and a regression test; 17 tests pass locally.

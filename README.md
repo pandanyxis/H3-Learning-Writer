@@ -82,3 +82,19 @@ active instructions are preserved. Running analyses and active versions are prot
 This repository contains application source, generic tests, a sample settings file,
 and the bundled upstream code. Personal videos, references, API keys, learned rules,
 local configuration, model weights and virtual environments are excluded.
+
+## Image-to-Video reference fidelity
+
+I2VA generation and refinement use a source-fidelity instruction covering facial
+structure, hair, skin tone, body proportions, garment type, colors, patterns, fit,
+materials, layers, footwear and accessories. Explicitly requested changes take
+priority. Unseen details must not be invented.
+
+Result reviews inventory visible source features, compare them with sampled video
+frames, and report expected versus observed details, timestamps, confidence,
+severity and whether a change was requested. Lighting, perspective, occlusion and
+motion blur are considered before reporting a defect. Findings are saved as
+`reference_fidelity` in the analysis review and contribute to its summary.
+
+This update does not change your selected external model or add content filtering.
+The external provider's own behavior and restrictions still apply.
