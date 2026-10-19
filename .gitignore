@@ -1,17 +1,17 @@
 # Local runtime and personal data
-.venv/
-runtime/
-models/
+/.venv/
+/runtime/
+/models/
 __pycache__/
 *.py[cod]
 .env
 .env.*
 !.env.example
-data/*
-!data/settings.example.json
+/data/*
+/!data/settings.example.json
 *.sqlite3
 *.sqlite3-*
 *.upload
 *.log
-.publish/
-.publish-base/
+/.publish/
+/.publish-base/
