@@ -2,7 +2,7 @@ import "/main.js";
 import { boot } from "/scripts/app.js";
 import { startHostLabels } from "/scripts/host_labels.js?v=0.2.0-learning.1";
 import { startManagedGGUF } from "/scripts/managed_gguf.js";
-import { startLearning } from "/scripts/learning.js?v=0.2.0-learning.1-archive";
+import { startLearning } from "/scripts/learning.js?v=0.2.0-learning.1-recent5";
 
 try {
   await boot();

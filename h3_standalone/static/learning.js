@@ -78,7 +78,7 @@ export function startLearning() {
   async function refresh() {
     state = await api(`/learning/state${el("archived").checked ? "?archived=1" : ""}`);
     el("enabled").checked = state.enabled;
-    fillSelect(el("generation"), state.generations.map(g => [g.id, `${new Date(g.created).toLocaleString("en-GB")} · ${g.input.mode} · ${g.input.creative_brief.slice(0, 85)}`]), "Generate a prompt first");
+    fillSelect(el("generation"), state.generations.slice(0, 5).map(g => [g.id, `${new Date(g.created).toLocaleString("en-GB")} · ${g.input.mode} · ${g.input.creative_brief.slice(0, 85)}`]), "Generate a prompt first");
     fillSelect(el("model"), state.models.map(m => [JSON.stringify({connection_id: m.connection_id, model_id: m.model_id}), m.label]), "Connect a vision model in Settings");
     showPrompt();
     el("jobs").replaceChildren();
